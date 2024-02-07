@@ -3,6 +3,7 @@ import { CatBox } from "./BearBox/CatBox";
 import { CatBox2 } from "./BearBox/CatBox2";
 import { CatBox3 } from "./BearBox/CatBox3";
 import { CatBox4 } from "./BearBox/CatBox4";
+import { CatBox6 } from "./BearBox/CatBox6";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <CatBox2 />
       <CatBox3 />
       <CatBox4 />
+      <CatBox6 />
     </>
   );
 }
