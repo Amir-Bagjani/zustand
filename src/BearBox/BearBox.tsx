@@ -12,7 +12,9 @@ export const BearBox = () => {
   const increasePopulation = useBearStore((state) => state.increasePopulation);
   const removeAllBeards = useBearStore((state) => state.removeAllBeards);
 
-  const [backgroundColor, setBackgroundColor] = useState("lightcoral");
+  const [backgroundColor, setBackgroundColor] = useState(
+    useFoodStore.getState().fish >= 5 ? "lightgreen" : "lightcoral"
+  );
 
   useEffect(() => {
     const unsub = useFoodStore.subscribe(
