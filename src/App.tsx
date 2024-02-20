@@ -1,13 +1,11 @@
 import "./App.css";
-import { BearBox } from "./BearBox/BearBox";
-import { FoodBox } from "./BearBox/FoodBox";
+import { CatBox4 } from "./BearBox/CatBox4";
 
 function App() {
   return (
     <>
       <h1>Zustand</h1>
-      <BearBox />
-      <FoodBox />
+      <CatBox4 />
     </>
   );
 }

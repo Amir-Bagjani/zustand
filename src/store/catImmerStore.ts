@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { StateCreator, create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
 type CatImmerState = {
@@ -10,20 +10,22 @@ type CatImmerState = {
   increaseSmallCats: () => void;
 };
 
-export const useCatImmerStore = create<CatImmerState>()(
-  immer((set) => ({
-    cats: {
-      bigCats: 0,
-      smallCats: 0,
-    },
-    increaseBigCats: () =>
-      //no need to return state
-      set((state) => {
-        state.cats.bigCats++;
-      }),
-    increaseSmallCats: () =>
-      set((state) => {
-        state.cats.smallCats++;
-      }),
-  }))
-);
+const createCatSlice: StateCreator<
+  CatImmerState,
+  [["zustand/immer", never]]
+> = (set) => ({
+  cats: {
+    bigCats: 0,
+    smallCats: 0,
+  },
+  increaseBigCats: () =>
+    //no need to return state
+    set((state) => {
+      state.cats.bigCats++;
+    }),
+  increaseSmallCats: () =>
+    set((state) => {
+      state.cats.smallCats++;
+    }),
+});
+export const useCatImmerStore = create<CatImmerState>()(immer(createCatSlice));
